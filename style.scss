@@ -87,9 +87,13 @@
                     transform: rotate(135deg);
                 }
                 .circle_rotate_circle{
+                    width: 120px;
                     animation: circle_rotate 10s infinite linear;
                     &:hover{
                         animation-play-state: paused;
+                    }
+                    @media (max-width:768px){
+                        width: 100px;
                     }
                 }
                 @media (max-width:768px) {

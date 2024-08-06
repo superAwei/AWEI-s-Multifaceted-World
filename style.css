@@ -534,10 +534,16 @@ canvas[resize] {
   transform: rotate(135deg);
 }
 .container .portolio .portolio_main .circle_rotate .circle_rotate_circle {
+  width: 120px;
   animation: circle_rotate 10s infinite linear;
 }
 .container .portolio .portolio_main .circle_rotate .circle_rotate_circle:hover {
   animation-play-state: paused;
+}
+@media (max-width: 768px) {
+  .container .portolio .portolio_main .circle_rotate .circle_rotate_circle {
+    width: 100px;
+  }
 }
 @media (max-width: 768px) {
   .container .portolio .portolio_main .circle_rotate {

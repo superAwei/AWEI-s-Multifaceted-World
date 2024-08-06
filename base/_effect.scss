@@ -1,0 +1,110 @@
+// 頁面加載動畫
+.loading_block{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: transform 0.2s ease 1.5s;
+    z-index: 100;
+    transition: transform 0.5s cubic-bezier(.77, 0, .175, 1) 1.2s;
+}
+.loading_up{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: 300;
+}
+.loading_down{
+    background-color: $primary-color;
+    z-index: 99;
+    transition-delay: 1.5s;
+}
+.loading_moveup{
+    transform: translateY(-100%);
+}
+.init-Ref{
+    opacity: 0;
+}
+
+
+// 滑鼠樣式設定
+canvas[resize]{
+    height: 100%;
+    width: 100%;
+    box-sizing:border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+
+@media (hover:none) {
+    canvas,.mousePoint{
+        display:none;
+    }
+}
+
+.mousePoint{
+    height: 8px;
+    width: 8px;
+    background-color:$dark;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    z-index: 101;
+    pointer-events: none;
+    &.bigDot{
+        width: 32px;
+        height: 32px;
+        background-color:$primary-color;
+        transition:all 0.3s ease;
+    }
+}
+
+// 連結效果
+.link_text{
+            position: relative;
+            font-size: 16px;
+            padding-right: 22px;
+            height: 24px;
+            overflow-x: hidden;
+            width: fit-content;
+            &::before{
+                content:"";
+                width: 100%;
+                height: 2px;
+                background-color:rgb(0, 0, 0);
+                position: absolute;
+                bottom: 1px;
+                transition: transform 0.3s ease;
+            }
+            &:hover::before{
+                transform: translateX(100%);
+            }
+            &::after{
+                content: "";
+                height: 12px;
+                width: 12px;
+                background-image: url('../assets/arrow.svg');
+                background-repeat: no-repeat;
+                position: absolute;
+                transform: translateX(10px)translateY(4px);
+            }
+}
+
+// 客製化文字選取顏色
+::selection {
+    background-color: $primary-color; // 網站主色，您可以根據需要更改
+    color: $white; // 選中文字的顏色
+    }
+    
+// 為Firefox瀏覽器添加
+::-moz-selection {
+    background-color: $primary-color; 
+    color: $white;
+}

@@ -1,0 +1,357 @@
+@import './base/main.scss';
+
+.container{
+    padding: 16px;
+    max-width: 100%; /* 確保容器不會超過視窗寬度 */
+    box-sizing: border-box; /* 將padding計入總寬度 */
+    .nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        .logo{
+            font-size: 20px;
+            font-weight: 200;
+        }
+    }
+    //第一部份
+    .portolio{
+        .intro{
+            font-size:6vw;
+            font-weight: 200;
+            line-height: 1.5;
+            padding: 120px 0px 30px 0px;
+            @media (max-width:768px) {
+                font-size:8vw;
+                padding: 80px 0px 30px 0px;
+            }
+        }
+        .portolio_main{
+            position: relative;
+            width: fit-content;
+            margin-top: 100px;
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+            .photo_box {
+                width: 600px;
+                height: 400px;
+                position: relative;
+                @media (max-width: 768px) {
+                    width: 100%;
+                    height: 300px;
+                }
+                .photo_1 {
+                    width: 100%;
+                    height: 100%;
+                    background-image: url('./assets/Profile-2.jpg');
+                    // background-position: 10% 10%;
+                    background-size: cover;
+                }
+                .photo_2 {
+                    width: 100%;
+                    height: 100%;
+                    background-image: url('./assets/Profile-1.jpg');
+                    background-position: 60% 38%;
+                    background-size: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    opacity: 0;
+                    transition: opacity 0.6s ease;
+                }
+                
+                &:hover {
+                    .photo_2 {
+                        opacity: 1;
+                    }
+                }
+            }
+            .circle_rotate{
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100px;
+                height: 100px;
+                transform: translateX(50%) translateY(-50%);
+                z-index: 20;
+                &>img{
+                    position: absolute;
+                }
+                .circle_rotate_arrow{
+                    width: 20px;
+                    transform: rotate(135deg);
+                }
+                .circle_rotate_circle{
+                    animation: circle_rotate 10s infinite linear;
+                    &:hover{
+                        animation-play-state: paused;
+                    }
+                }
+                @media (max-width:768px) {
+                    position: absolute;
+                    top: auto;
+                    right: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 80px;
+                    height: 80px;
+                    transform: translateX(50%) translateY(-50%);
+                    z-index: 20;
+                }
+            }
+
+            @keyframes circle_rotate {
+                from{
+                    transform: rotate(0deg);
+                }
+                to{
+                    transform: rotate(360deg);
+                }
+                
+            }
+        }
+    }
+    //第二部份
+    .selected_works {
+        position: relative;
+        
+        &_box {
+            position: relative;
+            height: 120px;
+            margin-bottom: 40px; // 添加底部間距
+    
+            &:hover {
+                .selected_works_text {
+                    opacity: 0;
+                }
+    
+                .selected_works_text_move {
+                    opacity: 1;
+                    animation-play-state: running;
+                }
+            }
+        }
+        
+        &_main {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 100%;
+        }
+    
+        &_text {
+            margin: 0px;
+            font-size: 56px;
+            font-weight: 300;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+    
+        &_num {
+            font-size: 16px;
+            margin-right: 16px;
+        }
+    
+        &_text_move {
+            position: absolute;
+            white-space: nowrap;
+            font-size: 56px;
+            font-weight: 200;
+            color: rgba(127, 127, 127, 0.6);
+            opacity: 0;
+            right: -100%;
+            animation: moveText 6s linear infinite;
+            animation-play-state: paused;
+            transition: opacity ease 0.1s;
+            pointer-events: none;
+        }
+    
+        .circle_img {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            opacity: 0;
+            left: 0;
+            top: -20px;
+            pointer-events: none;
+            z-index: 100;
+            
+            img {
+                width: 160%;
+            }
+        }
+    
+        @keyframes moveText {
+            0% { right: -60%; }
+            100% { right: 100%; }
+        }
+    
+        // 手機版樣式 (768px 以下)
+        @media (max-width: 768px) {
+            &_box {
+                height: 60px; // 調整高度以適應較小的文字
+                margin-bottom: 20px; // 減少底部間距
+            }
+    
+            &_text, &_text_move {
+                font-size: 32px; // 將文字大小從 56px 縮小到 32px
+            }
+    
+            &_num {
+                font-size: 12px; // 將文字大小從 16px 縮小到 12px
+                margin-right: 12px; // 稍微減少右邊距
+            }
+    
+            .circle_img {
+                width: 120px; // 調整圖片大小
+                height: 120px;
+                top: -10px; // 調整頂部位置
+            }
+        }
+    }
+
+    //第三部份
+    .contact {
+        &_info {
+            display: flex;
+            justify-content: space-between;
+        }
+        .info_left {
+            li {
+                padding: 6px 0px 6px 0px;
+            }
+            .info_hover {
+                position: relative;
+                width: fit-content;
+                overflow-x: hidden;
+                &::before {
+                    content: "";
+                    height: 1px;
+                    width: 100%;
+                    background-color: black;
+                    position: absolute;
+                    bottom: 1px;
+                    transform: translate(-102%);
+                    transition: transform 0.3s ease;
+                }
+                &:hover::before {
+                    transform: translate(0);
+                }
+            }
+        }
+    
+        .info_right {
+            position: relative;
+            line-height: 1.5;
+            @media (max-width:768px) {
+                line-height: 1.2;
+            }
+            video {
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translateY(-105%);
+                width: 300px;
+                visibility: hidden;
+            }
+            .info_icon {
+                display: inline-block;
+                width: 13px;
+                height: 13px;
+                background-image: url('./assets/close.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            &:hover {
+                video {
+                    visibility: visible;
+                }
+                .info_icon {
+                    background-image: url('./assets/play.svg');
+                }
+            }
+        }
+        .connect {
+            position: relative;
+            overflow: visible; // 允許內容溢出，以顯示箭頭
+            padding-right: 80px; // 為箭頭預留空間
+            box-sizing: border-box; // 確保 padding 不會增加總寬度
+            &::before {
+                content: "";
+                height: 2px;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                background-color: $dark;
+                transition: transform 0.5s ease;
+                @media (max-width:768px) {
+                    bottom: -6px;
+                }
+            }
+            &:hover::before {
+                transform: translate(105%);
+            }
+            &::after {
+                content: "";
+                height: 70px;
+                width: 70px;
+                background-image: url('./assets/arrow.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transition: transform 0.5s ease;
+                transform: translateX(-8px) translateY(8px);
+            }
+            &:hover::after {
+                transform: translateX(0px) translateY(0px);
+            }
+        }
+    
+        // 手機版樣式 (768px 以下)
+        @media (max-width: 768px) {
+            &_info {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .info_left {
+                li {
+                    padding: 4px 0px;
+                }
+            }
+            .info_right {
+                video {
+                    width: 100%;
+                    max-width: 300px;
+                    position: static;
+                    transform: none;
+                    visibility: visible;
+                    margin-bottom: 10px;
+                    @media (max-width:768px) {
+                        max-width:none;
+                    }
+                }
+            }
+            .connect{
+                font-size: 10vw;
+                &::after {
+                    height: 36px;
+                    width: 36px;
+                    transform: translateX(-4px) translateY(0px);
+                }
+            }
+        }
+    }
+    
+}
+
+

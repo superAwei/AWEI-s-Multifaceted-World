@@ -1,0 +1,67 @@
+
+// 字體樣式
+.main-title{
+    display: inline-block;
+    width: 100%;
+    font-size: 7vw;
+    font-weight: 300;
+    text-transform: uppercase;
+    @media (max-width:768px) {
+        font-size: 10vw;
+        margin-bottom: 36px;
+    }
+}
+
+//次標題
+.subtitle{
+    font-weight: 100;
+}
+
+.strong{
+    font-weight: bold;
+}
+.fs-m{
+    font-size: 36px;
+    @media (max-width:768px) {
+        margin-bottom: 26px;
+    }
+}
+
+.fs-sm{
+    font-size: 32px;
+    @media (max-width:768px) {
+        font-size:24px;
+    }
+}
+
+.fs-s{
+    font-size: 16px;
+    @media (max-width:768px) {
+        font-size: 14px;
+    }
+}
+
+// 間距
+.mb-20{
+    margin-bottom: 20px;
+    @media (max-width:768px) {
+        margin-bottom: 18px;
+    }
+}
+.mb-70{
+    margin-bottom: 70px;
+}
+.mb-120{
+    margin-bottom: 120px;
+}
+
+.pb-60{
+    padding-bottom: 60px;
+}
+
+.pb-10{
+    padding-bottom: 24px;
+    @media (max-width:768px) {
+        padding-bottom: 10px;
+    }
+}

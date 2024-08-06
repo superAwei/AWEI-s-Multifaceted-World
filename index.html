@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWEI's Multifaceted World</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./libs/animate.css">
+    <meta name="description" content="探索 AWEI 的多元世界：前端開發、經歷、攝影和更多精彩內容。">
+    <meta name="keywords" content="AWEI, 前端開發, 網頁設計, 個人網站">
+</head>
+<body>
+<!-- 頁面載入動畫 -->
+<div class="loading_block loading_up">Hello it's me.</div>
+<div class="loading_block loading_down"></div>
+
+<div class="mousePoint"></div>
+<canvas id="myCanvas" resize></canvas>
+<div class="container">
+    <!-- 第一部份 -->
+    <section class="header init-Ref">
+        <nav class="nav">
+            <h2 class="logo">AWEI Profile</h2>
+            <!-- 暗黑模式切換鈕 -->
+            <div class="switch_box" data-bigdot="true">
+                <label>
+                    <input type="checkbox" class="fakeCheckBox">
+                    <div class="slider-bar"></div>
+                </label>
+                <p class="switch_text">Dark toggle</p>
+            </div>
+        </nav>
+        <!-- 第一部份 -->
+        <div class="portolio mb-120">
+            <h1 class="intro">HI — <br>I'M AWEI, FRONTEND <br> DEVELOPER AND DESIGNER.</h1>
+            <div data-bigdot="true" class="link_text" href="javascript:;">more about me</div>
+            <div class="portolio_main">
+                <div class="photo_box">
+                    <div class="photo_1"></div>
+                    <div class="photo_2"></div>
+                </div>
+                <div class="circle_rotate">
+                    <img class="circle_rotate_arrow" src="./assets/arrow.svg" alt="arrow">
+                    <img class="circle_rotate_circle" src="./assets/circle-04.svg" alt="circle">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 第二部份 -->
+    <section class="selected_works mb-120 init-Ref">
+        <h2 class="subtitle fs-m pb-60">Selected Works</h2>
+        <ul>
+            <li class="selected_works_box">
+                <div class="selected_works_main"   data-bigdot="true">
+                    <h3><a class="selected_works_text" href="./page/exploreworks.html"><span class="selected_works_num">01 /</span>EXPLORE WORKS
+                    </a></h3>
+                    <span class="selected_works_text_move">Explore Curated Frontend Projects & Personal Photography • Where Code Meets Creativity</span>
+                </div>
+                <div class="circle_img">
+                    <img src="./assets/recon.jpg" alt="recon">
+                </div>
+            </li>
+            <!-- <li class="selected_works_box">
+                <div class="selected_works_main" data-bigdot="true">
+                    <h3 class="selected_works_text"><span class="selected_works_num">02 /</span>Glassland</h3>
+                    <span class="selected_works_text_move">Glassland & Glassland</span>
+                </div>
+                <div class="circle_img">
+                    <img src="./assets/glassland-screen-2.gif" alt="recon">
+                </div>
+            </li> -->
+            <!-- <li class="selected_works_box">
+                <div class="selected_works_main" data-bigdot="true">
+                    <h3 class="selected_works_text"><span class="selected_works_num">03 /</span>PEFC</h3>
+                    <span class="selected_works_text_move">PEFC & PEFC</span>
+                </div>
+                <div class="circle_img">
+                    <img src="./assets/pefc-sujet.jpg" alt="recon">
+                </div>
+            </li> -->
+        </ul>
+    </section>
+    <!-- 第三部份 -->
+    <footer class="contact init-Ref">
+        <h2 class="subtitle fs-m pb-60">Contact</h2>
+        <div class="contact_info mb-70">
+            <ul class="info_left">
+                <li><a href="javascript:;">Chen Hong Wei</a></li>
+                <li class="info_hover" data-bigdot="true"><a href="mailto:super0930274166@gmail.com" target="_blank">super0930274166@gmail.com</a></li>
+                <li class="info_hover" data-bigdot="true"><a href="https://www.linkedin.com/in/%E5%AE%8F%E7%91%8B-%E9%99%B3-a133b9179/?trk=opento_sprofile_details" target="_blank">Linkedin</a></li>
+            </ul>
+            <div class="info_right">
+                <video autoplay loop src="./assets/things.mp4"></video>
+                <p>You want to know more about me?<br>
+                <strong>Here are a few things I like</strong>
+                <span class="info_icon"></span>
+                </p> 
+            </div>
+        </div>
+        <footer>
+            <a class="connect main-title" href="mailto:super0930274166@gmail.com" target="_blank" data-bigdot="true">CONNECT</a>
+        </footer>
+    </footer>
+</div>
+<script src="./libs/jQuey.js"></script>
+<script src="./libs/gsap.min.js"></script>
+<script src="./libs/paper-full.min.js"></script>
+<script src="./main.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+.switch_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .slider-bar {
+        height: 36px;
+        width: 62px;
+        border: 2px solid dimgray;
+        border-radius: 20px;
+        position: relative;
+        
+        &::before {
+            content: "";
+            height: 32px;
+            width: 32px;
+            background-color: black;
+            position: absolute;
+            border-radius: 50%;
+            top: 2px;
+            left: 3px;
+            transition: transform 0.3s ease;
+        }
+    }
+    
+    .fakeCheckBox {
+        height: 0;
+        width: 0;
+        opacity: 0;
+        
+        &:checked + .slider-bar::before {
+            transform: translate(24px);
+        }
+    }
+    
+    .switch_text {
+        font-size: 12px;
+        color: #363636;
+        padding-top: 8px;
+    }
+
+    // 手機版樣式 (768px 以下)
+    @media (max-width: 768px) {
+        .slider-bar {
+            height: 28px;
+            width: 52px;
+            border-radius: 18px;
+
+            &::before {
+                height: 24px;
+                width: 24px;
+                top: 2px;
+                left: 2px;
+            }
+        }
+
+        .fakeCheckBox {
+            &:checked + .slider-bar::before {
+                transform: translateX(22px);
+            }
+        }
+
+        .switch_text {
+            font-size: 10px;
+            padding-top: 6px;
+        }
+    }
+}
+
+.connect {
+    position: relative;
+    overflow: visible; // 允許內容溢出，以顯示箭頭
+    padding-right: 80px; // 為箭頭預留空間
+    box-sizing: border-box; // 確保 padding 不會增加總寬度
+    &::before {
+        content: "";
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background-color: black;
+        transition: transform 0.5s ease;
+        @media (max-width:768px) {
+            bottom: -6px;
+        }
+    }
+    &:hover::before {
+        transform: translate(105%);
+    }
+    &::after {
+        content: "";
+        height: 70px;
+        width: 70px;
+        background-image: url('./assets/arrow.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: transform 0.5s ease;
+        transform: translateX(-8px) translateY(8px);
+    }
+    &:hover::after {
+        transform: translateX(0px) translateY(0px);
+    }
+}
+
+// 手機版樣式 (768px 以下)
+@media (max-width: 768px) {
+    .connect{
+        font-size: 10vw;
+        &::after {
+            height: 36px;
+            width: 36px;
+            transform: translateX(-4px) translateY(0px);
+        }
+    }
+}
